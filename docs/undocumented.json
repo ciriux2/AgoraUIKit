@@ -2,56 +2,21 @@
   "warnings": [
     {
       "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 12,
-      "symbol": "AgoraVideoViewController",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 18,
-      "symbol": "AgoraVideoViewController",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 60,
+      "line": 63,
       "symbol": "AgoraVideoViewController.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 70,
+      "line": 73,
       "symbol": "AgoraVideoViewController.viewWillAppear(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 159,
-      "symbol": "AgoraVideoViewController.collectionView(_:numberOfItemsInSection:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 163,
-      "symbol": "AgoraVideoViewController.collectionView(_:cellForItemAt:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 205,
-      "symbol": "AgoraVideoViewController",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 206,
+      "line": 221,
       "symbol": "AgoraVideoViewController.collectionView(_:layout:sizeForItemAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"

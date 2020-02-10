@@ -2,93 +2,44 @@
   "warnings": [
     {
       "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 12,
-      "symbol": "AgoraVideoViewController",
-      "symbol_kind": "source.lang.swift.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 38,
-      "symbol": "AgoraVideoViewController.initialize(appID:token:channel:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 52,
+      "line": 63,
       "symbol": "AgoraVideoViewController.viewDidLoad()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 62,
+      "line": 73,
       "symbol": "AgoraVideoViewController.viewWillAppear(_:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 151,
-      "symbol": "AgoraVideoViewController.collectionView(_:numberOfItemsInSection:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 155,
-      "symbol": "AgoraVideoViewController.collectionView(_:cellForItemAt:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 197,
-      "symbol": "AgoraVideoViewController",
-      "symbol_kind": "source.lang.swift.decl.extension",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 198,
+      "line": 220,
       "symbol": "AgoraVideoViewController.collectionView(_:layout:sizeForItemAt:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 216,
-      "symbol": "AgoraVideoViewController",
-      "symbol_kind": "source.lang.swift.decl.extension",
+      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/Logger.swift",
+      "line": 13,
+      "symbol": "LogLevel.None",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 217,
-      "symbol": "AgoraVideoViewController.rtcEngine(_:didJoinedOfUid:elapsed:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/Logger.swift",
+      "line": 14,
+      "symbol": "LogLevel.Normal",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 224,
-      "symbol": "AgoraVideoViewController.rtcEngine(_:didUpdatedUserInfo:withUid:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 230,
-      "symbol": "AgoraVideoViewController.rtcEngine(_:didOfflineOfUid:reason:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/AgoraVideoViewController.swift",
-      "line": 238,
-      "symbol": "AgoraVideoViewController.rtcEngine(_:remoteVideoStateChangedOfUid:state:reason:elapsed:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "file": "/Users/zontan/Documents/AgoraUIKit/AgoraUIKit/Logger.swift",
+      "line": 15,
+      "symbol": "LogLevel.Verbose",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     }
   ],

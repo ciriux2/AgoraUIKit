@@ -9,7 +9,10 @@
 import UIKit
 import AgoraRtcEngineKit
 
-open class AgoraVideoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+/**
+ `AgoraVideoViewController` is a view controller capable of joining and managing a multi-party Agora video call. It handles joining and leaving a channel, as well as showing remote video feeds from other users in the call.
+ */
+open class AgoraVideoViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var muteButton: UIButton!
@@ -155,11 +158,36 @@ open class AgoraVideoViewController: UIViewController, UICollectionViewDelegate,
         remoteUserIDs.removeAll()
         collectionView.reloadData()
     }
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+}
+
+/**
+ `AgoraVideoViewController` implements a `UICollectionView` to display the video streams of the users in the call.
+ */
+extension AgoraVideoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
-    public func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    // MARK: Collection View Delegate Methods
+    
+    /**
+     Handles showing the correct number of video streams. Default behavior displays up to four video streams at a time.
+     */
+    open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return min(4, numFeeds)
     }
     
+    /**
+     Handles the layout and setup of cells for displaying users' video streams.
+     */
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "videoCell", for: indexPath)
         
@@ -189,21 +217,11 @@ open class AgoraVideoViewController: UIViewController, UICollectionViewDelegate,
         
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-}
-
-extension AgoraVideoViewController: UICollectionViewDelegateFlowLayout {
-    public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    
+    /**
+     Determines the size of each collection view cell.
+     */
+    open func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         if numFeeds == 1 {
             return CGSize(width: collectionView.frame.width, height: collectionView.frame.height)
