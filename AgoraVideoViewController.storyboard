@@ -101,6 +101,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="ZSZ-fa-FgO" secondAttribute="height" multiplier="1:1" id="kiA-Hy-6Ti"/>
                                                 </constraints>
+                                                <state key="normal" title="Video"/>
                                                 <connections>
                                                     <action selector="didToggleVideo:" destination="siD-KM-b0t" eventType="touchUpInside" id="Qkc-xz-ApJ"/>
                                                 </connections>

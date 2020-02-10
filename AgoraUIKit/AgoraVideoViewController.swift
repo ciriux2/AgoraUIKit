@@ -9,7 +9,7 @@
 import UIKit
 import AgoraRtcEngineKit
 
-public class AgoraVideoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+open class AgoraVideoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var muteButton: UIButton!
@@ -35,7 +35,15 @@ public class AgoraVideoViewController: UIViewController, UICollectionViewDelegat
     
     var muted = false
     
-    public static func initialize(appID: String, token: String?, channel: String) -> AgoraVideoViewController {
+    /**
+     Creates a new AgoraVideoViewController.
+     - Parameters:
+        - appID: A static value that is used to connect to the Agora.io service. Get your Agora App Id from https://console.agora.io
+        - token: A static value that is used to as the user's channel token. You can set either a dynamic token or a temp token. Generate a temp token usic https://console.agora.io. Default is `nil`
+        - channel: The name of the channel to join. All users who join the same channel will be placed in a single call with each other.
+     - Returns: A ready-to-use `AgoraVideoViewController`. Present it or push it onto a navigation stack to join a call.
+     */
+    public static func initialize(appID: String, token: String? = nil, channel: String) -> AgoraVideoViewController {
         
         let myBundle = Bundle(for: self)
         let myStoryboard = UIStoryboard(name: "AgoraVideoViewController", bundle: myBundle)
@@ -210,37 +218,5 @@ extension AgoraVideoViewController: UICollectionViewDelegateFlowLayout {
         } else {
             return CGSize(width: collectionView.frame.width / 2, height: collectionView.frame.height / 2)
         }
-    }
-}
-
-extension AgoraVideoViewController: AgoraRtcEngineDelegate {
-    public func rtcEngine(_ engine: AgoraRtcEngineKit, didJoinedOfUid uid: UInt, elapsed: Int) {
-        remoteUserIDs.append(uid)
-        activeVideoIDs.append(uid)
-        collectionView.reloadData()
-    }
-    
-    //Sometimes, user info isn't immediately available when a remote user joins - if we get it later, reload their nameplate.
-    public func rtcEngine(_ engine: AgoraRtcEngineKit, didUpdatedUserInfo userInfo: AgoraUserInfo, withUid uid: UInt) {
-        if let index = remoteUserIDs.first(where: { $0 == uid }) {
-            collectionView.reloadItems(at: [IndexPath(item: Int(index), section: 0)])
-        }
-    }
-    
-    public func rtcEngine(_ engine: AgoraRtcEngineKit, didOfflineOfUid uid: UInt, reason: AgoraUserOfflineReason) {
-        if let index = remoteUserIDs.firstIndex(where: { $0 == uid }) {
-            remoteUserIDs.remove(at: index)
-            activeVideoIDs = activeVideoIDs.filter { $0 != uid }
-            collectionView.reloadData()
-        }
-    }
-    
-    public func rtcEngine(_ engine: AgoraRtcEngineKit, remoteVideoStateChangedOfUid uid: UInt, state: AgoraVideoRemoteState, reason: AgoraVideoRemoteStateReason, elapsed: Int) {
-        if state == .failed || state == .stopped {
-            activeVideoIDs = activeVideoIDs.filter { $0 != uid }
-        } else if state == .starting {
-            activeVideoIDs.append(uid)
-        }
-        collectionView.reloadData()
     }
 }
