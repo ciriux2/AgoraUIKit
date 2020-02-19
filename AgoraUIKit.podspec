@@ -21,8 +21,8 @@ Pod::Spec.new do |spec|
   spec.platform     = :ios, "12.0"
   spec.swift_version = "4.0"
   spec.source       = { :git => "https://github.com/zontan/AgoraUIKit.git" }
-  spec.source_files = "AgoraVideoViewController"
-  spec.resources    = "AgoraVideoViewController.storyboard", "Resources/*.png"
+  spec.source_files = "AgoraUIKit"
+  spec.resources    = "AgoraUIKit/*.storyboard", "Resources/*.png"
   spec.dependency     "AgoraRtcEngine_iOS"
   spec.static_framework = true
 

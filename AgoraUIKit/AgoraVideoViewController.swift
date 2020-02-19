@@ -12,7 +12,8 @@ import AgoraRtcEngineKit
 /**
  `AgoraVideoViewController` is a view controller capable of joining and managing a multi-party Agora video call. It handles joining and leaving a channel, as well as showing remote video feeds from other users in the call.
  */
-open class AgoraVideoViewController: UIViewController {
+@IBDesignable
+public class AgoraVideoViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var muteButton: UIButton!
@@ -34,6 +35,11 @@ open class AgoraVideoViewController: UIViewController {
         }
     }
     
+    /**
+    Maximum streams to show at once. Defaults to 4.
+     */
+    public var maxStreams = 4
+    
     var showingVideo = true
     
     var muted = false
@@ -43,21 +49,29 @@ open class AgoraVideoViewController: UIViewController {
      - Parameters:
         - appID: A static value that is used to connect to the Agora.io service. Get your Agora App Id from https://console.agora.io
         - token: A static value that is used to as the user's channel token. You can set either a dynamic token or a temp token. Generate a temp token usic https://console.agora.io. Default is `nil`
-        - channel: The name of the channel to join. All users who join the same channel will be placed in a single call with each other.
+        - channel: The name of the channel to join. All users who join the same channel will be placed in a single call with each other. The channel name cannot be empty, and channel names of at least 3 characters are recommended.
      - Returns: A ready-to-use `AgoraVideoViewController`. Present it or push it onto a navigation stack to join a call.
      */
-    public static func initialize(appID: String, token: String? = nil, channel: String) -> AgoraVideoViewController {
+    public static func create(appID: String, token: String? = nil, channel: String) -> AgoraVideoViewController {
+        
+        if channel == "" {
+            lprint("Cannot join a channel with no name.", .Normal)
+        }
         
         let myBundle = Bundle(for: self)
         let myStoryboard = UIStoryboard(name: "AgoraVideoViewController", bundle: myBundle)
-        
+
         let viewController = myStoryboard.instantiateInitialViewController() as! AgoraVideoViewController
         
-        viewController.appID = appID
-        viewController.tempToken = token
-        viewController.channelName = channel
+        viewController.setParameters(appID: appID, token: token, channel: channel)
         
         return viewController
+    }
+    
+    public func setParameters(appID: String, token: String? = nil, channel: String) {
+        self.appID = appID
+        self.tempToken = token
+        self.channelName = channel
     }
     
     override public func viewDidLoad() {
@@ -113,7 +127,7 @@ open class AgoraVideoViewController: UIViewController {
         return agoraKit!
     }
     
-    @IBAction func didToggleMute(_ sender: Any) {
+    @IBAction public func didToggleMute(_ sender: Any) {
         getAgoraEngine().muteLocalAudioStream(!muted)
 
         muted = !muted
@@ -127,7 +141,7 @@ open class AgoraVideoViewController: UIViewController {
         }
     }
     
-    @IBAction func didToggleVideo(_ sender: Any) {
+    @IBAction public func didToggleVideo(_ sender: Any) {
         getAgoraEngine().enableLocalVideo(!showingVideo)
         
         showingVideo = !showingVideo
@@ -140,11 +154,11 @@ open class AgoraVideoViewController: UIViewController {
         collectionView.reloadData()
     }
     
-    @IBAction func didSwitchCamera(_ sender: Any) {
+    @IBAction public func didSwitchCamera(_ sender: Any) {
         getAgoraEngine().switchCamera()
     }
     
-    @IBAction func didTapHangUp(_ sender: Any) {
+    @IBAction public func didTapHangUp(_ sender: Any) {
         leaveChannel()
         if let navigation = navigationController {
             navigation.popViewController(animated: true)
@@ -182,7 +196,7 @@ extension AgoraVideoViewController: UICollectionViewDelegate, UICollectionViewDa
      Handles showing the correct number of video streams. Default behavior displays up to four video streams at a time.
      */
     open func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return min(4, numFeeds)
+        return min(maxStreams, numFeeds)
     }
     
     /**
