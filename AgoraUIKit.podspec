@@ -18,7 +18,7 @@ Pod::Spec.new do |spec|
   spec.homepage     = "http://agora.io"
   spec.license      = { :type => "MIT" }
   spec.author       = { "Jonathan Fotland" => "jonathan@agora.io" }
-  spec.platform     = :ios, "12.0"
+  spec.platform     = :ios, "10.0"
   spec.swift_version = "4.0"
   spec.source       = { :git => "https://github.com/zontan/AgoraUIKit.git" }
   spec.source_files = "AgoraUIKit"
