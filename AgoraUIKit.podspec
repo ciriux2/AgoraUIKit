@@ -20,7 +20,7 @@ Pod::Spec.new do |spec|
   spec.author       = { "Jonathan Fotland" => "jonathan@agora.io" }
   spec.platform     = :ios, "10.0"
   spec.swift_version = "4.0"
-  spec.source       = { :git => "https://github.com/zontan/AgoraUIKit.git" }
+  spec.source       = { :git => "https://github.com/ciriux2/AgoraUIKit.git" }
   spec.source_files = "AgoraUIKit"
   spec.resources    = "AgoraUIKit/*.storyboard", "Resources/*.png"
   spec.dependency     "AgoraRtcEngine_iOS"
